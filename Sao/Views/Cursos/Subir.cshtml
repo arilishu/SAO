@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Subir";
+}
+
+@section head{
+  <script type="text/javascript">
+      //Files
+      var i = 0;
+      if (!window["FileUploadHelper"]) window["FileUploadHelper"] = {};
+      FileUploadHelper.addInputElement = function (index, name) {
+          i++;
+          var inputElem = document.createElement("input");
+          
+          inputElem.type = "file";
+          inputElem.name = name + i;
+          inputElem.id = name + i
+          var divElem = document.createElement("div");
+          divElem.appendChild(inputElem.cloneNode(false));
+          var inputs = document.getElementById("file-upload-" + index);
+          inputs.appendChild(divElem);
+      }
+
+     
+  </script>
+  }
+
+
+<form action="" method="post" enctype="multipart/form-data" onsubmit="return Validar()"> 
+    @Html.ValidationSummary(true)
+
+
+<!--ARCHIVOS--><div class="new_box_top">Archivos adjuntos (El total de archivos no debe superar los 10MB)</div>
+
+<div class="file-upload" id="file-upload-0">
+    <div>
+        <input name="fileUpload0" type="file" id="fileUpload0" />
+    </div>
+</div>
+<div class="file-upload-buttons" style="margin-top:10px;">
+    <a href="#" onclick="FileUploadHelper.addInputElement(0, 'fileUpload'); return false;" class="BotonAzul">Agregar otro archivo</a>
+</div>
+<input  id="Boton" type="submit" value="Subir Archivos" name="Enviar" />
+<div id="Mensaje"></div>
+</form>

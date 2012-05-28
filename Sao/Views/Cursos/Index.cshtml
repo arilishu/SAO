@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Sao.Models.Cursos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Cursos</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Nombre
+        </th>
+        <th></th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.Id })
+        </td>
+        <td>
+            @Html.ActionLink("Subir Archivos", "Subir", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
