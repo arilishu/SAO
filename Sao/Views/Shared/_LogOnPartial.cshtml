@@ -1,7 +1,0 @@
-﻿@if(Session["Usuario"] != null) {
-    <text>Estás logueado como <strong>@Session["Usuario"]</strong>!
-    [ @Html.ActionLink("SALIR", "Logout", "Alumnos") ]</text>
-}
-else {
-    @:[ @Html.ActionLink("INGRESAR", "Login", "Alumnos") ]
-}
